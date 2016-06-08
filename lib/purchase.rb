@@ -8,18 +8,10 @@ belongs_to :item
   end
 
 
-  def get_revenue_by_item_id
-
+  def get_purchases_by_user_id user_id
+    Purchase.where(user_id: user_id).all
   end
 
 
 
-
-
-
 end
-
-# quantities = []
-# Purchase.quantity.each do |i|
-#  quantities.push(quantity)
-# end
