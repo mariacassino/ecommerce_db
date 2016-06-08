@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 has_many :purchases
+has_many :addresses
+has_many :items, through :purchases 
 validates_presence_of :first_name, :last_name
 
 # attr_reader :username
