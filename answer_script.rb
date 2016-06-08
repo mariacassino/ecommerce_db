@@ -32,12 +32,33 @@ number_of_things = purch.get_purchases_by_item_id item_id
 puts "#{number_of_things} Mediocre Copper Bottle sold."
 
 
+# ALTERNATE WAYS TO FIND NUMBER OF ITEM SOLD:
+# total = 0
+# i.purchases.each do |l|
+#   total += l.quantity
+# end
+#
+# OR
+#
+# i.purchases.pluck(:quantity).reduce(0, :+)
+#
+# OR
+#
+# i.purchases.sum(:quantity)
+
+# OR
+
+# purch.includes(:item).map{|purch| purch.quantity * purch.item.price}.reduce :+
+
+
+
 #5) total revenue
 prices_array = []
 Purchase.all.each do |i|
   prices_array.push((i.item.price.to_f) * (i.quantity))
 end
 puts "Total revenue is #{(prices_array.reduce(:+)).round(2)}."
+
 
 
 #6) how much Carmelo spent:
