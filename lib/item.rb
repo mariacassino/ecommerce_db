@@ -1,6 +1,6 @@
 class Item < ActiveRecord::Base
   has_many :purchases
-  has_many :users, through :purchases 
+  has_many :users, through: :purchases 
 
   def display_items
     Item.all.each do |i|
